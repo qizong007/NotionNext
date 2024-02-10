@@ -141,10 +141,10 @@ const LayoutIndex = props => {
         {siteConfig('POST_LIST_STYLE') === 'page'
           ? (
             <BlogPostListPage {...props} />
-            )
+          )
           : (
             <BlogPostListScroll {...props} />
-            )}
+          )}
       </div>
     </LayoutBase>
   )
@@ -175,10 +175,10 @@ const LayoutPostList = props => {
         {siteConfig('POST_LIST_STYLE') === 'page'
           ? (
             <BlogPostListPage {...props} />
-            )
+          )
           : (
             <BlogPostListScroll {...props} />
-            )}
+          )}
       </div>
     </LayoutBase>
   )
@@ -228,18 +228,18 @@ const LayoutSearch = props => {
         {!currentSearch
           ? (
             <SearchNav {...props} />
-            )
+          )
           : (
             <div id="posts-wrapper">
               {siteConfig('POST_LIST_STYLE') === 'page'
                 ? (
                   <BlogPostListPage {...props} />
-                  )
+                )
                 : (
                   <BlogPostListScroll {...props} />
-                  )}
+                )}
             </div>
-            )}
+          )}
       </div>
     </LayoutBase>
   )
@@ -463,6 +463,7 @@ const Layout404 = props => {
               <LatestPostsGroup {...props} />
             </div>
           </Transition>
+          <AdSlot />
         </div>
       </main>
     </div>

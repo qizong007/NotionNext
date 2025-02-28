@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useImperativeHandle, useRef, useState } from 'react'
 import CONFIG from '../config'
+import AdSlot from '@/components/AdSlot'
 
 /**
  * 顶部英雄区
@@ -25,7 +26,7 @@ const Hero = props => {
         id="hero"
         style={{ zIndex: 1 }}
         className={
-           `animate__animated animate__fadeIn animate__fast 
+          `animate__animated animate__fadeIn animate__fast 
            ${HEO_HERO_REVERSE ? 'xl:flex-row-reverse' : ''}
            recent-post-top rounded-[12px] 2xl:px-5 recent-top-post-group max-w-[86rem] overflow-x-scroll w-full mx-auto flex-row flex-nowrap flex relative`
         }
@@ -38,6 +39,11 @@ const Hero = props => {
 
         {/* 右侧置顶文章组 */}
         <TopGroup {...props} />
+      </div>
+
+      {/* 添加广告位 */}
+      <div className="w-full flex justify-center my-4">
+        <AdSlot type='show' />
       </div>
     </div>
   )
@@ -249,7 +255,7 @@ function TopGroup(props) {
                 <div className="group-hover:text-indigo-600 dark:group-hover:text-yellow-600 line-clamp-2 overflow-hidden m-2 font-semibold">
                   {p?.title}
                 </div>
-                {/* hover 悬浮的 ‘荐’ 字 */}
+                {/* hover 悬浮的 '荐' 字 */}
                 <div className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 duration-200 transition-all absolute -top-2 -left-2 bg-indigo-600 dark:bg-yellow-600  text-white rounded-xl overflow-hidden pr-2 pb-2 pl-4 pt-4 text-xs">
                   荐
                 </div>
@@ -258,7 +264,7 @@ function TopGroup(props) {
           )
         })}
       </div>
-      <TodayCard cRef={todayCardRef} siteInfo={siteInfo}/>
+      <TodayCard cRef={todayCardRef} siteInfo={siteInfo} />
     </div>
   )
 }
@@ -275,7 +281,7 @@ function getTopPosts({ latestPosts, allNavPages }) {
     return latestPosts
   }
 
-  // 显示包含‘推荐’标签的文章
+  // 显示包含'推荐'标签的文章
   let sortPosts = []
 
   // 排序方式
@@ -342,18 +348,16 @@ function TodayCard({ cRef, siteInfo }) {
   return (
     <div
       id="today-card"
-      className={`${
-        isCoverUp ? ' ' : 'pointer-events-none'
-      } overflow-hidden absolute hidden xl:flex flex-1 flex-col h-full top-0 w-full`}
+      className={`${isCoverUp ? ' ' : 'pointer-events-none'
+        } overflow-hidden absolute hidden xl:flex flex-1 flex-col h-full top-0 w-full`}
     >
       <div
         id="card-body"
         onClick={handleCardClick}
-        className={`${
-          isCoverUp
+        className={`${isCoverUp
             ? 'opacity-100 cursor-pointer'
             : 'opacity-0 transform scale-110 pointer-events-none'
-        } shadow transition-all duration-200 today-card h-full bg-[#0E57D5] rounded-xl relative overflow-hidden flex items-end`}
+          } shadow transition-all duration-200 today-card h-full bg-[#0E57D5] rounded-xl relative overflow-hidden flex items-end`}
       >
         <div
           id="today-card-info"
@@ -365,9 +369,8 @@ function TodayCard({ cRef, siteInfo }) {
           </div>
           <div
             onClick={handleClickMore}
-            className={`'${
-              isCoverUp ? '' : 'hidden pointer-events-none '
-            } flex items-center px-3 h-10 justify-center bg-[#425aef] hover:bg-[#4259efcb] transition-colors duration-100 rounded-3xl`}
+            className={`'${isCoverUp ? '' : 'hidden pointer-events-none '
+              } flex items-center px-3 h-10 justify-center bg-[#425aef] hover:bg-[#4259efcb] transition-colors duration-100 rounded-3xl`}
           >
             <PlusSmall
               className={'w-6 h-6 mr-2 bg-white rounded-full stroke-indigo-400'}
@@ -379,9 +382,8 @@ function TodayCard({ cRef, siteInfo }) {
         </div>
         <div
           id="today-card-cover"
-          className={`${
-            isCoverUp ? '' : ' pointer-events-none'
-          } cursor-pointer today-card-cover absolute w-full h-full top-0`}
+          className={`${isCoverUp ? '' : ' pointer-events-none'
+            } cursor-pointer today-card-cover absolute w-full h-full top-0`}
           style={{
             background: `url('${siteInfo?.pageCover}') no-repeat center /cover`
           }}

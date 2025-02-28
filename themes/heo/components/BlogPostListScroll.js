@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import CONFIG from '../config'
 import { getListByPage } from '@/lib/utils'
 import { siteConfig } from '@/lib/config'
+import { AdSlot } from '@/components/GoogleAdsense'
 
 /**
  * 博客列表滚动分页
@@ -56,18 +57,36 @@ const BlogPostListScroll = ({ posts = [], currentSearch, showSummary = siteConfi
   } else {
     return <div id='container' ref={targetRef} className='w-full'>
 
+      {/* 顶部广告 */}
+      <div className="w-full my-4">
+        <AdSlot type='show' />
+      </div>
+
       {/* 文章列表 */}
       <div className="2xl:grid 2xl:grid-cols-2 grid-cols-1 gap-5">
-        {postsToShow.map(post => (
-          <BlogPostCard key={post.id} post={post} showSummary={showSummary} siteInfo={siteInfo}/>
+        {postsToShow.map((post, index) => (
+          <>
+            <BlogPostCard key={post.id} post={post} showSummary={showSummary} siteInfo={siteInfo} />
+            {/* 每4篇文章后插入一个广告 */}
+            {(index + 1) % 4 === 0 && index !== postsToShow.length - 1 && (
+              <div className="col-span-2 my-4">
+                <AdSlot type='flow' />
+              </div>
+            )}
+          </>
         ))}
       </div>
 
       {/* 更多按钮 */}
       <div>
         <div onClick={() => { handleGetMore() }}
-             className='w-full my-4 py-4 text-center cursor-pointer rounded-xl dark:text-gray-200'
+          className='w-full my-4 py-4 text-center cursor-pointer rounded-xl dark:text-gray-200'
         > {hasMore ? locale.COMMON.MORE : `${locale.COMMON.NO_MORE}`} </div>
+      </div>
+
+      {/* 底部广告 */}
+      <div className="w-full my-4">
+        <AdSlot type='native' />
       </div>
     </div>
   }

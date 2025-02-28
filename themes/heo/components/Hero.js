@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useImperativeHandle, useRef, useState } from 'react'
 import CONFIG from '../config'
-import AdSlot from '@/components/AdSlot'
+import { AdSlot } from '@/components/GoogleAdsense'
 
 /**
  * 顶部英雄区
@@ -355,8 +355,8 @@ function TodayCard({ cRef, siteInfo }) {
         id="card-body"
         onClick={handleCardClick}
         className={`${isCoverUp
-            ? 'opacity-100 cursor-pointer'
-            : 'opacity-0 transform scale-110 pointer-events-none'
+          ? 'opacity-100 cursor-pointer'
+          : 'opacity-0 transform scale-110 pointer-events-none'
           } shadow transition-all duration-200 today-card h-full bg-[#0E57D5] rounded-xl relative overflow-hidden flex items-end`}
       >
         <div

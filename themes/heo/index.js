@@ -147,17 +147,6 @@ const LayoutIndex = props => {
         <BlogPostListScroll {...props} />
       )}
     </div>
-      <div id="post-outer-wrapper" className="px-5 md:px-0">
-        {/* 文章分类条 */}
-        <CategoryBar {...props} />
-        {siteConfig('POST_LIST_STYLE') === 'page'
-          ? (
-            <BlogPostListPage {...props} />
-          )
-          : (
-            <BlogPostListScroll {...props} />
-          )}
-      </div>
   )
 }
 
@@ -227,8 +216,8 @@ const LayoutSearch = props => {
 /**
  * 归档
  * @param {*} props
-        * @returns
-        */
+ * @returns
+ */
 const LayoutArchive = props => {
   const { archivePosts } = props
 
@@ -255,8 +244,8 @@ const LayoutArchive = props => {
 /**
  * 文章详情
  * @param {*} props
-        * @returns
-        */
+ * @returns
+ */
 const LayoutSlug = props => {
   const { post, lock, validPassword } = props
   const { locale, fullWidth } = useGlobal()
@@ -369,8 +358,8 @@ const LayoutSlug = props => {
 /**
  * 404
  * @param {*} props
-        * @returns
-        */
+ * @returns
+ */
 const Layout404 = props => {
   // const { meta, siteInfo } = props
   const { onLoading, fullWidth } = useGlobal()
@@ -428,8 +417,8 @@ const Layout404 = props => {
 /**
  * 分类列表
  * @param {*} props
-        * @returns
-        */
+ * @returns
+ */
 const LayoutCategoryIndex = props => {
   const { categoryOptions } = props
   const { locale } = useGlobal()
@@ -470,8 +459,8 @@ const LayoutCategoryIndex = props => {
 /**
  * 标签列表
  * @param {*} props
-        * @returns
-        */
+ * @returns
+ */
 const LayoutTagIndex = props => {
   const { tagOptions } = props
   const { locale } = useGlobal()

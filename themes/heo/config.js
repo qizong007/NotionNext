@@ -39,12 +39,10 @@ const CONFIG = {
   // 右侧个人资料卡牌欢迎语，点击可自动切换
   HEO_INFOCARD_GREETINGS: [
     '你好！我是',
-    '🔍 分享与热心帮助',
-    '🤝 专修交互与设计',
-    '🏃 脚踏实地行动派',
-    '🏠 智能家居小能手',
-    '🤖️ 数码科技爱好者',
-    '🧱 团队小组发动机'
+    '⌨️ 后端工程师',
+    '🛠️ 独立开发者',
+    '✍️ 内容创作者',
+    '🧠 INFJ',
   ],
 
   // 个人资料底部按钮
@@ -52,7 +50,7 @@ const CONFIG = {
   HEO_INFO_CARD_ICON1: 'fas fa-user',
   HEO_INFO_CARD_URL2: 'https://github.com/qizong007',
   HEO_INFO_CARD_ICON2: 'fab fa-github',
-  HEO_INFO_CARD_URL3: 'https://www.tangly1024.com',
+  HEO_INFO_CARD_URL3: 'https://okjk.co/uA931R',
   HEO_INFO_CARD_TEXT3: '了解更多',
 
   // 用户技能图标

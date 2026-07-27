@@ -1,4 +1,16 @@
 // import '@/styles/animate.css' // @see https://animate.style/
+
+// 强制 Node 18+ 的 DNS 优先解析 IPv4
+// 解决 Node 内置 fetch (undici) 在某些网络下连不上 Notion API (208.103.161.x) 的问题
+if (typeof process !== 'undefined' && process.versions?.node) {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require('dns').setDefaultResultOrder('ipv4first')
+  } catch (e) {
+    // 老 Node 或浏览器环境忽略
+  }
+}
+
 import '@/styles/globals.css'
 import '@/styles/utility-patterns.css'
 

@@ -46,28 +46,25 @@ const CONFIG = {
       // 公众号跳到搜索页，扫码加关注（需要登录态拿不到 openId）
       url: 'https://weixin.sogou.com/weixin?type=2&query=qizong007',
       label: '订阅',
-      fallback: 1243,
+      fallback: 1347,
       hoverColor: '#07C160' // 微信绿
     },
     {
       key: 'xhs',
       name: '小红书',
       icon: 'fa-solid fa-bookmark',
-      // 小红书没有公开的 userId URL 模式，跳到搜索页（最稳）
-      url: 'https://www.xiaohongshu.com/search?keyword=qizong007',
+      url: 'https://www.xiaohongshu.com/user/profile/5c507ad8000000001800e25a',
       label: '粉丝',
-      fallback: 1294,
+      fallback: 1410,
       hoverColor: '#FF2442' // 小红书红
     },
     {
       key: 'youtube',
       name: 'YouTube',
       icon: 'fa-brands fa-youtube',
-      // YouTube 没有公开 userId 跳个人主页，@handle 也不一定存在
-      // 跳到搜索页最稳
-      url: 'https://www.youtube.com/results?search_query=qizong007',
+      url: 'https://www.youtube.com/@qizong007',
       label: '订阅',
-      fallback: 880,
+      fallback: 1140,
       hoverColor: '#FF0000' // YouTube 红
     }
   ],
@@ -81,7 +78,7 @@ const CONFIG = {
       key: 'jike',
       name: '即刻',
       icon: 'fa-solid fa-bolt',
-      url: 'https://web.okjike.com/u/qizong007',
+      url: 'https://m.okjike.com/users/bb668784-6bbc-456d-989c-1f8e90f6fd95',
       showIcon: true,
       clickable: true,
       hoverColor: '#FFD400' // 即刻黄
@@ -120,8 +117,6 @@ const CONFIG = {
   // ===== 文章列表 =====
   EDITORIAL_POST_LIST_SUMMARY: true, // 显示摘要
   EDITORIAL_POST_LIST_COVER: true, // 显示封面
-  EDITORIAL_POSTS_PER_PAGE: 10, // 每页文章数
-
   // ===== 详情页 =====
   EDITORIAL_ARTICLE_TOC_STICKY: true, // 目录悬浮
   EDITORIAL_ARTICLE_ADJACENT: true, // 上一篇/下一篇

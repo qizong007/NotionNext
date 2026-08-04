@@ -1,6 +1,5 @@
 import { siteConfig } from '@/lib/config'
 import { useGlobal } from '@/lib/global'
-import CONFIG from '../config'
 import BlogPostCard from './BlogPostCard'
 import BlogPostListEmpty from './BlogPostListEmpty'
 import PaginationNumber from './PaginationNumber'
@@ -11,11 +10,7 @@ import PaginationNumber from './PaginationNumber'
  */
 const BlogPostListPage = ({ page = 1, posts = [], postCount, siteInfo }) => {
   const { NOTION_CONFIG } = useGlobal()
-  const POSTS_PER_PAGE = siteConfig(
-    'EDITORIAL_POSTS_PER_PAGE',
-    siteConfig('POSTS_PER_PAGE', 10, NOTION_CONFIG),
-    CONFIG
-  )
+  const POSTS_PER_PAGE = siteConfig('POSTS_PER_PAGE', 12, NOTION_CONFIG)
   const totalPage = Math.ceil((postCount || 0) / POSTS_PER_PAGE)
   const showPagination = (postCount || 0) >= POSTS_PER_PAGE
 

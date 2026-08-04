@@ -21,5 +21,5 @@ module.exports = {
   CONTACT_ZHISHIXINGQIU: process.env.NEXT_PUBLIC_CONTACT_ZHISHIXINGQIU || '', // 知识星球
   CONTACT_WEHCHAT_PUBLIC: process.env.NEXT_PUBLIC_CONTACT_WEHCHAT_PUBLIC || '', // 微信公众号 格式：https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=【xxxxxx】==#wechat_redirect
   // 即刻：editorial 主题会读取，社交入口
-  CONTACT_JIKE: process.env.NEXT_PUBLIC_CONTACT_JIKE || 'https://web.okjike.com/u/qizong007'
+  CONTACT_JIKE: process.env.NEXT_PUBLIC_CONTACT_JIKE || 'https://m.okjike.com/users/bb668784-6bbc-456d-989c-1f8e90f6fd95'
 }

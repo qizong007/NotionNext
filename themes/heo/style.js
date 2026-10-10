@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import CONFIG from './config'
+import { siteConfig } from '@/lib/config'
 import { themeConsoleStyle } from '@/lib/themeConsoleStyle'
 /**
  * 此处样式只对当前主题生效
@@ -10,28 +11,35 @@ const Style = () => {
   return (
     <style jsx global>{`
       #theme-heo {
-        --heo-color-primary: #4f65f0;
-        --heo-color-primary-hover: #4f46e5;
-        --heo-color-primary-text: #ffffff;
-        --heo-color-accent: #ca8a04;
-        --heo-color-bg: #f7f9fe;
-        --heo-color-bg-dark: #18171d;
-        --heo-color-card: #ffffff;
-        --heo-color-card-dark: #1e1e1e;
-        --heo-color-card-muted: #f1f3f8;
-        --heo-color-border: #4f46e5;
-        --heo-color-border-dark: #ca8a04;
-        --heo-color-text-light: #000000;
-        --heo-color-text-secondary-light: #4b5563;
-        --heo-color-text-dark: #f3f4f6;
-        --heo-color-text-secondary-dark: #d1d5db;
+        --heo-color-primary: ${siteConfig('HEO_COLOR_PRIMARY', CONFIG.HEO_COLOR_PRIMARY, CONFIG)};
+        --heo-color-primary-hover: ${siteConfig('HEO_COLOR_PRIMARY_HOVER', CONFIG.HEO_COLOR_PRIMARY_HOVER, CONFIG)};
+        --heo-color-primary-text: ${siteConfig('HEO_COLOR_PRIMARY_TEXT', CONFIG.HEO_COLOR_PRIMARY_TEXT, CONFIG)};
+        --heo-color-accent: ${siteConfig('HEO_COLOR_ACCENT', CONFIG.HEO_COLOR_ACCENT, CONFIG)};
+        --heo-color-bg: ${siteConfig('HEO_COLOR_BG', CONFIG.HEO_COLOR_BG, CONFIG)};
+        --heo-color-bg-dark: ${siteConfig('HEO_COLOR_BG_DARK', CONFIG.HEO_COLOR_BG_DARK, CONFIG)};
+        --heo-color-card: ${siteConfig('HEO_COLOR_CARD', CONFIG.HEO_COLOR_CARD, CONFIG)};
+        --heo-color-card-dark: ${siteConfig('HEO_COLOR_CARD_DARK', CONFIG.HEO_COLOR_CARD_DARK, CONFIG)};
+        --heo-color-card-muted: ${siteConfig('HEO_COLOR_CARD_MUTED', CONFIG.HEO_COLOR_CARD_MUTED, CONFIG)};
+        --heo-color-card-muted-dark: ${siteConfig('HEO_COLOR_CARD_MUTED_DARK', CONFIG.HEO_COLOR_CARD_MUTED_DARK, CONFIG)};
+        --heo-color-border: ${siteConfig('HEO_COLOR_BORDER', CONFIG.HEO_COLOR_BORDER, CONFIG)};
+        --heo-color-border-dark: ${siteConfig('HEO_COLOR_BORDER_DARK', CONFIG.HEO_COLOR_BORDER_DARK, CONFIG)};
+        --heo-color-text-light: ${siteConfig('HEO_COLOR_TEXT', CONFIG.HEO_COLOR_TEXT, CONFIG)};
+        --heo-color-text-secondary-light: ${siteConfig('HEO_COLOR_TEXT_SECONDARY', CONFIG.HEO_COLOR_TEXT_SECONDARY, CONFIG)};
+        --heo-color-text-dark: ${siteConfig('HEO_COLOR_TEXT_DARK', CONFIG.HEO_COLOR_TEXT_DARK, CONFIG)};
+        --heo-color-text-secondary-dark: ${siteConfig('HEO_COLOR_TEXT_SECONDARY_DARK', CONFIG.HEO_COLOR_TEXT_SECONDARY_DARK, CONFIG)};
         --heo-color-text: var(--heo-color-text-light);
         --heo-color-text-secondary: var(--heo-color-text-secondary-light);
         background-color: var(--heo-color-bg);
         color: var(--heo-color-text);
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+          'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+        -webkit-font-smoothing: antialiased;
       }
 
       .dark #theme-heo {
+        --heo-color-card-muted: var(--heo-color-card-muted-dark);
+        --heo-color-post-header: #35353c;
         --heo-color-text: var(--heo-color-text-dark);
         --heo-color-text-secondary: var(--heo-color-text-secondary-dark);
         background-color: var(--heo-color-bg-dark);
@@ -111,12 +119,16 @@ const Style = () => {
       }
 
       body {
-        background-color: #f7f9fe;
+        background-color: ${siteConfig('HEO_COLOR_BG', CONFIG.HEO_COLOR_BG, CONFIG)};
       }
 
-      // 公告栏中的字体固定白色
+      html.dark body {
+        background-color: ${siteConfig('HEO_COLOR_BG_DARK', CONFIG.HEO_COLOR_BG_DARK, CONFIG)};
+      }
+
+      /* 公告栏随信息卡使用浅色文字 */
       #theme-heo #announcement-content .notion {
-        color: white;
+        color: var(--heo-color-primary-text);
       }
 
       ::-webkit-scrollbar-thumb {
@@ -151,7 +163,7 @@ const Style = () => {
         box-sizing: border-box;
       }
 
-      // 标签滚动动画
+      /* 标签滚动动画 */
       .tags-group-wrapper {
         animation: rowup 60s linear infinite;
       }
@@ -166,9 +178,163 @@ const Style = () => {
       }
 
       ${themeConsoleStyle('heo', CONFIG)}
-  `}</style>
+
+      /* 控制台的基础色板优先，正文和中性表面也随明暗模式切换。 */
+      .dark #theme-heo {
+        --heo-color-text: var(--heo-color-text-dark);
+        --heo-color-text-secondary: var(--heo-color-text-secondary-dark);
+      }
+
+      #theme-heo [class*='hover:border-[var(--heo-color-border)]']:hover {
+        border-color: var(--heo-color-primary);
+      }
+
+      .dark
+        #theme-heo
+        [class*='hover:border-[var(--heo-color-border-dark)]']:hover {
+        border-color: var(--heo-color-accent);
+      }
+
+      #theme-heo
+        :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+        outline: 2px solid var(--heo-console-primary);
+        outline-offset: 4px;
+      }
+
+      #theme-heo ::selection {
+        background: var(--heo-color-primary);
+        color: var(--heo-color-primary-text);
+      }
+
+      /* 动画尚未触发或主题切换改变位置时，内容仍应可见。 */
+      #theme-heo .wow {
+        visibility: visible !important;
+      }
+
+      #theme-heo .heo-profile-card {
+        background: linear-gradient(
+          145deg,
+          var(--heo-color-primary-hover),
+          var(--heo-color-primary)
+        );
+        border-color: var(--heo-color-primary-hover);
+      }
+
+      #theme-heo .heo-profile-card #announcement-content a {
+        color: inherit;
+      }
+
+      #theme-heo .heo-post-card {
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.025);
+      }
+
+      #theme-heo .heo-post-card:hover {
+        border-color: #b5b5bc;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.055);
+      }
+
+      .dark #theme-heo .heo-post-card:hover {
+        border-color: #636366;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+      }
+
+      #theme-heo .heo-hero-category {
+        border-radius: 14px;
+        border: 1px solid rgba(29, 29, 31, 0.06);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      }
+
+      #theme-heo .heo-category-featured {
+        background: #e2ebe5;
+        color: #2f5547;
+      }
+
+      #theme-heo .heo-category-popular {
+        background: #e0e9f5;
+        color: #354f73;
+      }
+
+      #theme-heo .heo-category-technical {
+        background: #e9e5f1;
+        color: #58476b;
+      }
+
+      .dark #theme-heo .heo-hero-category {
+        border-color: rgba(255, 255, 255, 0.12);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .dark #theme-heo .heo-category-featured {
+        background: #344c43;
+        color: #d9eee2;
+      }
+
+      .dark #theme-heo .heo-category-popular {
+        background: #35465f;
+        color: #dce8fc;
+      }
+
+      .dark #theme-heo .heo-category-technical {
+        background: #494055;
+        color: #ece1f7;
+      }
+
+      .dark #theme-heo .article {
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+      }
+
+      .dark #theme-heo #notion-article {
+        --bg-color: var(--heo-color-card-dark);
+        --bg-color-1: var(--heo-color-card-muted-dark);
+        --fg-color: #e6e6eb;
+        --fg-color-3: var(--heo-color-text-secondary-dark);
+        color: var(--fg-color);
+      }
+
+      .dark #theme-heo #notion-article .notion {
+        color: var(--fg-color);
+      }
+
+      .dark #theme-heo #notion-article .notion-code {
+        background: #35353c !important;
+        border: 1px solid var(--heo-color-border-dark);
+      }
+
+      .dark #theme-heo #notion-article .notion-callout {
+        border-color: var(--heo-color-border-dark);
+      }
+
+      .dark #theme-heo #notion-article .notion-h {
+        color: var(--heo-color-text-dark);
+      }
+
+      .dark #theme-heo #notion-article .notion-quote {
+        border-color: #92929d;
+      }
+
+      #theme-heo .tags-group-icon {
+        border: 1px solid rgba(0, 0, 0, 0.045);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      }
+
+      #theme-heo :where(h1, h2, .font-extrabold) {
+        letter-spacing: -0.025em;
+        font-weight: 600;
+      }
+
+      #theme-heo .notion-link,
+      #theme-heo .notion-link:hover,
+      #theme-heo .tk-main a {
+        color: inherit;
+        opacity: 1;
+      }
+
+      #theme-heo input:focus {
+        border-color: var(--heo-console-primary) !important;
+        --tw-ring-color: var(--heo-console-primary) !important;
+      }
+    `}</style>
   )
 }
 
 export { Style }
-

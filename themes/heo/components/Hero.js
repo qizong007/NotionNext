@@ -102,7 +102,7 @@ function Banner(props) {
         id='banner-cover'
         style={{ backdropFilter: 'blur(15px)' }}
         className={
-          'z-20 rounded-xl overflow-hidden opacity-0 group-hover:opacity-100 duration-300 transition-all bg-[var(--heo-color-primary)] dark:bg-[var(--heo-color-accent)] dark:text-white cursor-pointer absolute w-full h-full top-0 flex justify-start items-center'
+          'z-20 rounded-xl overflow-hidden opacity-0 group-hover:opacity-100 duration-300 transition-all bg-[var(--heo-color-primary)] dark:text-white cursor-pointer absolute w-full h-full top-0 flex justify-start items-center'
         }>
         <div className='ml-12 -translate-x-32 group-hover:translate-x-0 duration-300 transition-all ease-in'>
           <div className='text-7xl text-white font-extrabold'>{coverTitle}</div>
@@ -178,10 +178,10 @@ function GroupMenu() {
     <div className='h-[165px] select-none xl:h-20 flex flex-col justify-between xl:space-y-0 xl:flex-row w-28 lg:w-48 xl:w-full xl:flex-nowrap xl:space-x-3'>
       <SmartLink
         href={url_1}
-        className='group relative overflow-hidden bg-[var(--heo-color-primary)] flex h-20 justify-start items-center text-[var(--heo-color-primary-text)] rounded-xl xl:hover:w-1/2 xl:w-1/3 transition-all duration-500 ease-in'>
+        className='heo-hero-category heo-category-featured group relative overflow-hidden flex h-20 justify-start items-center rounded-xl xl:hover:w-1/2 xl:w-1/3 transition-all duration-500 ease-in'>
         <div className='font-bold lg:text-lg  pl-5 relative -mt-2'>
           {title_1}
-          <span className='absolute -bottom-0.5 left-5 w-5 h-0.5 bg-white rounded-full'></span>
+          <span className='absolute -bottom-0.5 left-5 w-5 h-0.5 bg-current rounded-full'></span>
         </div>
         <div className='hidden lg:block absolute right-6  duration-700 ease-in-out transition-all scale-[2] translate-y-6 rotate-12 opacity-20 group-hover:opacity-80 group-hover:scale-100 group-hover:translate-y-0 group-hover:rotate-0'>
           <i className='fa-solid fa-star text-4xl'></i>
@@ -189,10 +189,10 @@ function GroupMenu() {
       </SmartLink>
       <SmartLink
         href={url_2}
-        className='group relative overflow-hidden bg-gradient-to-r from-red-500 to-yellow-500 flex h-20 justify-start items-center text-white rounded-xl xl:hover:w-1/2 xl:w-1/3 transition-all duration-500 ease-in'>
+        className='heo-hero-category heo-category-popular group relative overflow-hidden flex h-20 justify-start items-center rounded-xl xl:hover:w-1/2 xl:w-1/3 transition-all duration-500 ease-in'>
         <div className='font-bold lg:text-lg pl-5 relative -mt-2'>
           {title_2}
-          <span className='absolute -bottom-0.5 left-5 w-5 h-0.5 bg-white rounded-full'></span>
+          <span className='absolute -bottom-0.5 left-5 w-5 h-0.5 bg-current rounded-full'></span>
         </div>
         <div className='hidden lg:block absolute right-6  duration-700 ease-in-out transition-all scale-[2] translate-y-6 rotate-12 opacity-20 group-hover:opacity-80 group-hover:scale-100 group-hover:translate-y-0 group-hover:rotate-0'>
           <i className='fa-solid fa-fire-flame-curved text-4xl'></i>
@@ -201,10 +201,10 @@ function GroupMenu() {
       {/* 第三个标签在小屏上不显示 */}
       <SmartLink
         href={url_3}
-        className='group relative overflow-hidden bg-gradient-to-r from-teal-300 to-cyan-300 hidden h-20 xl:flex justify-start items-center text-white rounded-xl xl:hover:w-1/2 xl:w-1/3 transition-all duration-500 ease-in'>
+        className='heo-hero-category heo-category-technical group relative overflow-hidden hidden h-20 xl:flex justify-start items-center rounded-xl xl:hover:w-1/2 xl:w-1/3 transition-all duration-500 ease-in'>
         <div className='font-bold text-lg pl-5 relative -mt-2'>
           {title_3}
-          <span className='absolute -bottom-0.5 left-5 w-5 h-0.5 bg-white rounded-full'></span>
+          <span className='absolute -bottom-0.5 left-5 w-5 h-0.5 bg-current rounded-full'></span>
         </div>
         <div className='absolute right-6 duration-700 ease-in-out transition-all scale-[2] translate-y-6 rotate-12 opacity-20 group-hover:opacity-80 group-hover:scale-100 group-hover:translate-y-0 group-hover:rotate-0'>
           <i className='fa-solid fa-book-bookmark text-4xl '></i>
@@ -251,7 +251,7 @@ function TopGroup(props) {
                   {p?.title}
                 </div>
                 {/* hover 悬浮的 ‘荐’ 字 */}
-                <div className='opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 duration-200 transition-all absolute -top-2 -left-2 bg-[var(--heo-color-primary)] dark:bg-[var(--heo-color-accent)] text-[var(--heo-color-primary-text)] rounded-xl overflow-hidden pr-2 pb-2 pl-4 pt-4 text-xs'>
+                <div className='opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 duration-200 transition-all absolute -top-2 -left-2 bg-[var(--heo-color-primary)] text-[var(--heo-color-primary-text)] rounded-xl overflow-hidden pr-2 pb-2 pl-4 pt-4 text-xs'>
                   {locale.COMMON.RECOMMEND_BADGES}
                 </div>
               </div>

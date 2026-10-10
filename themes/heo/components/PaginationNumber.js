@@ -70,14 +70,14 @@ const PaginationNumber = ({ page, totalPage }) => {
           {pages}
 
           {/* 跳转页码 */}
-          <div className='bg-[var(--heo-color-card)] hover:bg-gray-100 dark:hover:bg-[var(--heo-color-accent)] dark:bg-[var(--heo-color-card-dark)] h-10 border dark:border-gray-600 flex justify-center items-center rounded-lg group hover:border-[var(--heo-color-border)] transition-all duration-200'>
+          <div className='bg-[var(--heo-color-card)] hover:bg-gray-100 dark:hover:bg-[var(--heo-color-primary-hover)] dark:bg-[var(--heo-color-card-dark)] h-10 border dark:border-gray-600 flex justify-center items-center rounded-lg group hover:border-[var(--heo-color-border)] transition-all duration-200'>
             <input
               value={value}
               className='w-0 group-hover:w-20 group-hover:px-3 transition-all duration-200 bg-gray-100 border-none outline-none h-full rounded-lg'
               onInput={handleInputChange}></input>
             <div
               onClick={jumpToPage}
-              className='cursor-pointer hover:bg-[var(--heo-color-primary)] dark:bg-[var(--heo-color-card-dark)] dark:hover:bg-[var(--heo-color-accent)] hover:text-[var(--heo-color-primary-text)] px-4 py-2 group-hover:px-2 group-hover:mx-1 group-hover:rounded bg-[var(--heo-color-card)]'>
+              className='cursor-pointer hover:bg-[var(--heo-color-primary)] dark:bg-[var(--heo-color-card-dark)] dark:hover:bg-[var(--heo-color-primary-hover)] hover:text-[var(--heo-color-primary-text)] px-4 py-2 group-hover:px-2 group-hover:mx-1 group-hover:rounded bg-[var(--heo-color-card)]'>
               <ChevronDoubleRight className={'w-4 h-4'} />
             </div>
           </div>
@@ -153,9 +153,9 @@ function getPageElement(page, currentPage, pagePrefix) {
       passHref
       className={
         (selected
-          ? 'bg-[var(--heo-color-primary)] dark:bg-[var(--heo-color-accent)] text-[var(--heo-color-primary-text)] '
+          ? 'bg-[var(--heo-color-primary)] text-[var(--heo-color-primary-text)] '
           : 'dark:bg-[var(--heo-color-card-dark)] bg-[var(--heo-color-card)]') +
-        ' hover:border-[var(--heo-color-border)] dark:hover:bg-[var(--heo-color-accent)] dark:border-gray-600 px-4 border py-2 rounded-lg drop-shadow-sm duration-200 transition-colors'
+        ' hover:border-[var(--heo-color-border)] dark:hover:bg-[var(--heo-color-primary-hover)] dark:border-gray-600 px-4 border py-2 rounded-lg drop-shadow-sm duration-200 transition-colors'
       }>
       {page}
     </SmartLink>

@@ -68,7 +68,7 @@ export function InfoCard(props) {
     avatarBlurEnabled
   )
   return (
-    <Card className='wow fadeInUp bg-[var(--heo-color-primary)] dark:bg-[var(--heo-color-accent)] text-[var(--heo-color-primary-text)] flex flex-col w-72 overflow-hidden relative'>
+    <Card className='heo-profile-card wow fadeInUp bg-[var(--heo-color-primary)] text-[var(--heo-color-primary-text)] flex flex-col w-72 overflow-hidden relative'>
       {/* 信息卡牌第一行 */}
       <div className='flex justify-between'>
         {/* 问候语 */}
@@ -99,21 +99,21 @@ export function InfoCard(props) {
         <div className='flex space-x-3  hover:text-black dark:hover:text-white'>
           {/* 社交按钮 */}
           {url1 && (
-            <div className='w-10 text-center bg-[var(--heo-color-primary-hover)] p-2 rounded-full  transition-colors duration-200 dark:bg-[var(--heo-color-accent)] dark:hover:bg-black hover:bg-white'>
+            <div className='w-10 text-center bg-[var(--heo-color-primary-hover)] p-2 rounded-full  transition-colors duration-200 dark:bg-[var(--heo-color-primary)] dark:hover:bg-black hover:bg-white'>
               <SmartLink href={url1}>
                 <i className={icon1} />
               </SmartLink>
             </div>
           )}
           {url2 && (
-            <div className='bg-[var(--heo-color-primary-hover)] p-2 rounded-full w-10 items-center flex justify-center transition-colors duration-200 dark:bg-[var(--heo-color-accent)] dark:hover:bg-black hover:bg-white'>
+            <div className='bg-[var(--heo-color-primary-hover)] p-2 rounded-full w-10 items-center flex justify-center transition-colors duration-200 dark:bg-[var(--heo-color-primary)] dark:hover:bg-black hover:bg-white'>
               <SmartLink href={url2}>
                 <i className={icon2} />
               </SmartLink>
             </div>
           )}
           {orcidUrl && (
-            <div className='bg-[var(--heo-color-primary-hover)] p-2 rounded-full w-10 items-center flex justify-center transition-colors duration-200 dark:bg-[var(--heo-color-accent)] dark:hover:bg-black hover:bg-white'>
+            <div className='bg-[var(--heo-color-primary-hover)] p-2 rounded-full w-10 items-center flex justify-center transition-colors duration-200 dark:bg-[var(--heo-color-primary)] dark:hover:bg-black hover:bg-white'>
               <SmartLink href={orcidUrl} title='ORCID' aria-label='ORCID'>
                 <i className={orcidIcon} />
               </SmartLink>
@@ -141,7 +141,7 @@ function MoreButton() {
     <SmartLink href={url3}>
       <div
         className={
-          'group bg-[var(--heo-color-primary-hover)] dark:bg-[var(--heo-color-accent)] hover:bg-white dark:hover:bg-black hover:text-black dark:hover:text-white flex items-center transition-colors duration-200 py-2 px-3 rounded-full space-x-1'
+          'group bg-[var(--heo-color-primary-hover)] dark:bg-[var(--heo-color-primary)] hover:bg-white dark:hover:bg-black hover:text-black dark:hover:text-white flex items-center transition-colors duration-200 py-2 px-3 rounded-full space-x-1'
         }>
         <ArrowRightCircle
           className={
@@ -174,7 +174,7 @@ function GreetingsWords() {
   return (
     <div
       onClick={handleChangeGreeting}
-      className=' select-none cursor-pointer py-1 px-2 bg-[var(--heo-color-primary-hover)] hover:bg-[var(--heo-color-card-muted)]  hover:text-[var(--heo-color-text)] dark:bg-[var(--heo-color-accent)] dark:hover:text-white dark:hover:bg-black text-sm rounded-lg  duration-200 transition-colors'>
+      className=' select-none cursor-pointer py-1 px-2 bg-[var(--heo-color-primary-hover)] hover:bg-[var(--heo-color-card-muted)]  hover:text-[var(--heo-color-text)] dark:bg-[var(--heo-color-primary)] dark:hover:text-white dark:hover:bg-black text-sm rounded-lg  duration-200 transition-colors'>
       {greeting}
     </div>
   )

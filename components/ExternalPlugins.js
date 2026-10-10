@@ -8,6 +8,7 @@ import { GlobalStyle } from './GlobalStyle'
 import { initGoogleAdsense } from './GoogleAdsense'
 
 import Head from 'next/head'
+import Script from 'next/script'
 import ExternalScript from './ExternalScript'
 import WebWhiz from './Webwhiz'
 import { useGlobal } from '@/lib/global'
@@ -422,8 +423,9 @@ const ExternalPlugin = props => {
 
       {/* 百度统计 */}
       {ANALYTICS_BAIDU_ID && (
-        <script
-          async
+        <Script
+          id='baidu-analytics'
+          strategy='afterInteractive'
           dangerouslySetInnerHTML={{
             __html: `
           var _hmt = _hmt || [];
